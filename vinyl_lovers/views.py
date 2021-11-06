@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Album
 from .forms import AlbumForm
 
@@ -19,3 +19,15 @@ def add_album(request):
             form.save()
             return redirect(to='album-entries')
     return render(request, 'vinyl_lovers/add_album.html', {"form": form})
+
+
+def edit_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(data=request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect(to="album-entries")
+    return render(request, 'vinyl_lovers/edit_album.html', {"form": form})
