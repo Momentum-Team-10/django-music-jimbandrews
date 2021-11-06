@@ -3,6 +3,8 @@
 {% block content %}
 <h1>Albums</h1>
 
+<p><a href="{% url 'add-album' %}">Add New Album</a></p>
+
 <div class="flex flex-wrap">
     {% for album in albums %}
     <h2>{{ album.title }}</h2>
