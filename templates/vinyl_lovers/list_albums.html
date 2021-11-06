@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Albums</h1>
+
+<div class="flex flex-wrap">
+    {% for album in albums %}
+    <h2>{{ album.title }}</h2>
+    <h4>{{ album.artist }}</h4>
+    <h4>{{ album.condition }}</h4>
+    {% endfor %}
+</div>
+{% endblock %}
