@@ -6,7 +6,7 @@ class Album(models.Model):
     title = models.CharField(max_length=500)
     artist = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
-    orignal_release = models.DateField()
+    # orignal_release = models.DateField()
 
     MINT = 'M'
     NEAR_MINT = 'NM'
