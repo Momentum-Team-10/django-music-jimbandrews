@@ -30,4 +30,4 @@ def edit_album(request, pk):
         if form.is_valid():
             form.save()
             return redirect(to="album-entries")
-    return render(request, 'vinyl_lovers/edit_album.html', {"form": form})
+    return render(request, 'vinyl_lovers/edit_album.html', {"form": form, "album": album})
