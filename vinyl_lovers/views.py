@@ -40,3 +40,11 @@ def edit_album(request, pk):
 def view_album(request, pk):
     album = get_object_or_404(Album, pk=pk)
     return render(request, 'vinyl_lovers/view_album.html', {"album": album})
+
+
+def delete_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'POST':
+        album.delete()
+        return redirect(to='album-entries')
+    return render(request, 'vinyl_lovers/delete_album.html', {"album": album})

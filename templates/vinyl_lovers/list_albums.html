@@ -8,7 +8,9 @@
 <div class="flex flex-wrap">
     {% for album in albums %}
     <div>
-        <h2>{{ album.title }}</h2>
+        <a href="{% url 'view-album' pk=album.pk %}">
+            <h2>{{ album.title }}</h2>
+        </a>
         <h4>{{ album.artist }}</h4>
         <h4>{{ album.condition }}</h4>
         <p><a href="{% url 'edit-album' pk=album.pk %}">Edit Album</a></p>
