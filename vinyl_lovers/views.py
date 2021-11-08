@@ -30,4 +30,13 @@ def edit_album(request, pk):
         if form.is_valid():
             form.save()
             return redirect(to="album-entries")
-    return render(request, 'vinyl_lovers/edit_album.html', {"form": form, "album": album})
+    return render(
+        request,
+        'vinyl_lovers/edit_album.html',
+        {"form": form, "album": album}
+    )
+
+
+def view_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    return render(request, 'vinyl_lovers/view_album.html', {"album": album})
