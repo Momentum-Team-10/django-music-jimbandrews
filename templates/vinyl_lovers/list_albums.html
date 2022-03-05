@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Albums</h1>
+
+<p><a href="{% url 'add-album' %}">Add New Album</a></p>
+
+<div class="flex flex-wrap">
+    {% for album in albums %}
+    <div>
+        <a href="{% url 'view-album' pk=album.pk %}">
+            <h2>{{ album.title }}</h2>
+        </a>
+        <h4>{{ album.artist }}</h4>
+        <h4>{{ album.condition }}</h4>
+        <p><a href="{% url 'edit-album' pk=album.pk %}">Edit Album</a></p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
